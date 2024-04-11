@@ -1,4 +1,4 @@
-### JAVA学习记录
+## JAVA学习记录
 
 > [异常处理](#exception)
 >
@@ -6,7 +6,7 @@
 >
 > [java IO流](#iostream)
 
-### <a name="exception">异常处理</a>
+## <a name="exception">异常处理</a>
 
 #### 理解异常
 
@@ -87,9 +87,54 @@ class myexception extends RuntimeException{
 };
 ```
 
-### <a name="complain">java注解</a>
+## <a name="complain">java注解</a>
 
-[详细使用方法](https://www.runoob.com/java/java-documentation.html)
+[详细使用方法](https://www.runoob.com/java/java-documentation.html)<-------请点击这里，进入痛苦之海。
 
-### <a name="iostream">java IO流</a>
+## <a name="iostream">javaIO流</a>
 
+> [认识IO流](#ios)
+>
+> [IO流的分类](#destinguish)
+>
+> [需要掌握的IO流](#need)
+
+### <a name="ios">认识IO流</a>
+
+​		IO流，即输入输出，用于完成硬盘文件的读和写的操作。
+
+Istream:输入流
+
+Ostream:输出流
+
+### <a name="distinguish">IO流的分类</a>
+
+1、按照**流的方向**：
+
+**输出流**和**输入流**
+
+2、按照**读取数据**的方式：
+
+**字符流**和**字节流**
+
+字符流：仅能读取普通文本文件或者纯文本文件(能用txt打开的文件，无法打开word文档)
+
+字节流：万能流，可以打开任何形式的文件
+
+```java
+字节流：
+    java.io.InputStream;//输入流
+    java.io.OutputStream;//输出流
+字符流：
+    java.io.Reader;//输入流
+	java.io.Writer;//输出流
+/*注意*/
+所有流都实现了java.io.Closeable接口;
+使用完流一定要用close()关闭流
+所有输出流都实现了java.io.Flushable接口；
+使用完流要调用flush()刷新流通道以防数据丢失
+```
+
+### <a name="need">需要掌握的IO流</a>
+
+[详细使用请点击这里](https://blog.csdn.net/qq_44715943/article/details/116501936#t3)
