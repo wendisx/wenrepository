@@ -16,7 +16,7 @@
 >
 > [字节流FileOutputStream](#fileoutputstream)
 >
-> [序列化和反序列化](#serialization and deserialization)
+> [序列化和反序列化](#serialization)
 
 ## <a name="filework">文件操作</a>
 
@@ -169,7 +169,7 @@ public class fileoutputstreamdemo{
 }
 ```
 
-## <a name="serialization and deserialization">序列化和反序列化</a>
+## <a name="serialization">序列化和反序列化</a>
 
 ```java
 /*java序列化和反序列化是通过java.io.Serializable实现的,因此，要实现序列化，需要先对类实现接口*/
