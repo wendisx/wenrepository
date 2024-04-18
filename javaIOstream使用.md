@@ -111,3 +111,102 @@ public class copydemo{
 }
 ```
 
+## <a name="fileinputstream">字节流FileInputStream</a>
+
+```java
+import java.io.*;
+public class fileinputstreamdemo{
+    public static void main(String[] args){
+        try{
+            FileInputStream f= new FileInputStream("文件路径");
+            String[] data= new String[读取长度];
+            int count=0;
+            while((count=f.read(data))!=-1){
+               System.out.println(data);
+            }
+            if(f!=null){
+                try{
+                    f.close();
+                    System.out.println("字节流关闭成功");
+                }catch(IOException e){
+                    e.printStackTrace();
+                }
+            }
+        }catch(IOException e){
+            e.printStackTrace();
+        }
+    }
+}
+```
+
+## <a name="fileoutputstream">字节流FileOutputStream</a>
+
+```java
+import java.io.*;
+public class fileoutputstreamdemo{
+    public static void main(String[] args){
+        try{
+            FileOutputStream f= new FileOutputStream("文件路径",true/false);//true为在文件末尾写入，false表示清空文件从头开始写
+            String data={写入数据/内容};
+            Byte[] bdata=data.getBytes();//转化成字节
+           f.write(bdata);
+            f.flush();//写完后刷新流确保数据不被丢失
+        }catch(FileNotFoundExcception e){
+            e.printStackTrace();
+        }catch(IOException e){
+            e.printStackTrace();
+        }finally{
+            if(f!=null){
+                try{
+                    f.close();
+                    System.out.println("文件流关闭成功");
+                }catch(IOException e){
+                    e.printStackTrace();
+                }
+            }
+        }
+    }
+}
+```
+
+## <a name="serialization and deserialization">序列化和反序列化</a>
+
+```java
+/*java序列化和反序列化是通过java.io.Serializable实现的,因此，要实现序列化，需要先对类实现接口*/
+public interface Serializable{
+    /*序列化接口;*/
+}
+//以下以学生类为例
+public class Student implements Serializable{
+    private int id;
+    private String name;
+    public Student(int id,String name){
+        this.id=id;
+        this.name=name;
+    }
+    ...all of your methods
+}
+//实现序列化
+import java.io.*;
+public class SerializableDemo{
+    public static void main(String[] args) throws Exception{
+        Student stu1 = new Student(100000,"张三");
+        FileOutputStream f= new FileOutputStream("FILE_PATH");
+        ObjectOutputStream fout=new ObjectOutputStream(f);
+        fout.writeObject(stu1);
+        fout.close();
+        f.close();
+    }
+}
+//实现反序列化
+import java.io.*;
+public class DeSerializationDemo{
+    Student stu2=null;
+    public static void main(String[] args) throws Exception{
+        ObjectInputStream fin=new ObjectInputStream(new FileInputStream("FILE_PATH"));
+        stu2=(Student)fin.readObject();
+       fin.close();
+    }
+}
+```
+
