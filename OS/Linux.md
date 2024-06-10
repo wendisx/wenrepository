@@ -97,6 +97,8 @@ r--1
 >下载软件
 >
 >服务操作
+>
+>软链接
 
 ```shell
 显示当前目录内容
@@ -140,5 +142,7 @@ chown [-R] 用户:用户名 路径
 sudo yum [-y] install/remove/search 软件包
 服务操作
 systemctl start/stop status enable/disable 服务
+软链接
+ln -s 路径1 路径2
 ```
 
